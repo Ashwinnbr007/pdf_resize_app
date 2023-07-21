@@ -1,5 +1,5 @@
 from fastapi import FastAPI, File, UploadFile, Request
-from fastapi.responses import HTMLResponse, FileResponse
+from fastapi.responses import HTMLResponse, FileResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 import shutil
 import os
@@ -15,7 +15,7 @@ async def read_root(request: Request):
 @app.post("/process_pdf/")
 async def process_pdf(pdf: UploadFile = File(...)):
     file_path = f"uploaded_files/{pdf.filename}"
-    os.makedirs("uploaded_files", exist_ok=True)  
+    os.makedirs("uploaded_files", exist_ok=True) 
     with open(file_path, "wb") as buffer:
         shutil.copyfileobj(pdf.file, buffer)
         

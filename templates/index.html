@@ -6,8 +6,25 @@
   <body>
     <h1>Upload a PDF</h1>
     <form action="/process_pdf/" method="post" enctype="multipart/form-data">
-      <input type="file" name="pdf" />
-      <input type="submit" value="Upload" />
+      <input
+        type="file"
+        id="pdfFile"
+        name="pdf"
+        onchange="enableDownloadButton()"
+      />
+      <input type="submit" id="downloadButton" disabled value="Resize PDF" />
     </form>
+    <script>
+      function enableDownloadButton() {
+        const fileInput = document.getElementById("pdfFile");
+        const downloadButton = document.getElementById("downloadButton");
+
+        if (fileInput.value) {
+          downloadButton.disabled = false;
+        } else {
+          downloadButton.disabled = true;
+        }
+      }
+    </script>
   </body>
 </html>
