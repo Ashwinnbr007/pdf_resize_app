@@ -8,7 +8,7 @@ def split_pdf(pdf_path, split_length):
         original_height = page.mediabox.height
         
         if original_height > split_length:
-            num_splits = max(int(original_height / split_length),2)+1
+            num_splits = max(int(original_height / split_length),2)
             print(num_splits)
             start_y = original_height
             end_y = original_height - split_length
