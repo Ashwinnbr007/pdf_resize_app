@@ -41,7 +41,5 @@ jobs:
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           port: 22
           script: |
-            docker stop pdf_resize_app || true
-            docker rm pdf_resize_app || true
             docker pull ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/pdf_resize_app:latest
             docker run -d -p 8000:8000 --name pdf_resize_app --platform=linux/arm64/v8 ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/pdf_resize_app:latest
