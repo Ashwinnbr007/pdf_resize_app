@@ -2,27 +2,52 @@
 <html>
   <head>
     <title>Upload PDF</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', path='/css/style.css') }}"
+    />
   </head>
   <body>
-    <h1>Upload a PDF</h1>
+    <h1 id="index-title">Upload a PDF</h1>
     <form action="/process_pdf/" method="post" enctype="multipart/form-data">
-      <input
-        type="file"
-        id="pdfFile"
-        name="pdf"
-        accept=".pdf"
-        onchange="enableDownloadButton()"
-      />
-      <input type="submit" id="downloadButton" disabled value="Resize PDF" />
+      <div class="btn-container">
+        <label for="pdfFile" class="btn-1" id="uploadButton"
+          >Upload PDF
+          <input
+            class="btn-1"
+            type="file"
+            id="pdfFile"
+            name="pdf"
+            accept=".pdf"
+            onchange="enableDownloadButton()"
+          />
+        </label>
+        <input
+          class="btn-2-greyed"
+          type="submit"
+          id="downloadButton"
+          disabled
+          value="Resize PDF"
+        />
+      </div>
     </form>
     <script>
       function enableDownloadButton() {
         const fileInput = document.getElementById("pdfFile");
         const downloadButton = document.getElementById("downloadButton");
+        const uploadButton = document.getElementById("uploadButton");
 
-        if (fileInput.value) {
+        if (fileInput.files.length > 0) {
+          uploadButton.textContent = "PDF Uploaded";
+          uploadButton.classList.add("uploaded");
+
           downloadButton.disabled = false;
+          downloadButton.classList.remove("btn-2-greyed");
+          downloadButton.classList.add("btn-2");
         } else {
+          uploadButton.textContent = "Choose File";
+          uploadButton.classList.remove("uploaded");
           downloadButton.disabled = true;
         }
       }
