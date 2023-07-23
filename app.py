@@ -8,6 +8,12 @@ import os
 from pdf_service import split_pdf
 
 app = FastAPI()
+app.config["PREFERRED_URL_SCHEME"] = "https"
+app.mount(
+    "/static",
+    StaticFiles(directory=Path(__file__).parent.absolute() / "static"),
+    name="static",
+)
 templates = Jinja2Templates(directory="templates")
 
 @app.get("/", response_class=HTMLResponse)
