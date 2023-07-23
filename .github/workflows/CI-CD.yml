@@ -47,4 +47,4 @@ jobs:
             docker stop pdf_resize_app
             docker rm pdf_resize_app
             docker pull ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/pdf_resize_app:latest
-            docker run -d -p 8000:8000 ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/pdf_resize_app:latest
+            docker run -d -p --name pdf_resize_app 8000:8000 ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/pdf_resize_app:latest
