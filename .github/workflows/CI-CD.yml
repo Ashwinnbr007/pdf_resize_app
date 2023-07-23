@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - master
-    paths-ignore:
-      - '**.yml'
 
 jobs:
   build-and-deploy:
