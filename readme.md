@@ -2,7 +2,7 @@
 
 ## About
 
-The app is a full stack web application hosted on aws ec2 instance as a docker container.
+The app is a full stack web application hosted on aws ec2 instance.
 
 The app is meant to resize a pdf and split into multiple pages when the height of a pdf page is greater than 3480pixels.
 
@@ -11,4 +11,11 @@ To make the app more user-friendly, the nginx server takes care of reverse proxy
 
 ## Setup
 
-To run the app, you can visit http://radixploreassignment.online or run locally using a docker container.
+To run the app, you can visit https://radixploreassignment.online or run locally using a docker container. ( SSL secured )
+
+### To run locally using docker container
+
+1. Clone the repo
+2. cd into the repo `cd pdf_resize_app`
+3. Build using `docker build -t pdf_resize_app .` (Ensure you have docker installed before this step)
+4. Run the container `docker run pdf_resize_app`
