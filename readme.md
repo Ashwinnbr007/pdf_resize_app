@@ -19,3 +19,8 @@ To run the app, you can visit https://radixploreassignment.online or run locally
 2. cd into the repo `cd pdf_resize_app`
 3. Build using `docker build -t pdf_resize_app .` (Ensure you have docker installed before this step)
 4. Run the container `docker run pdf_resize_app`
+
+## To create an image with NXM dimensions
+
+I had run into an issue where i could not find any custom nxm for testing the logic, hence image_gen.py was created. 
+Simply add in your width and height and run `python3 image_gen.py` and a blank NxM image will be generated.
