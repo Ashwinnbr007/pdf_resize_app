@@ -32,6 +32,9 @@ jobs:
 
       - name: Push Docker image to ECR
         run: docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/pdf_resize_app:latest
+        
+      - name: Wait for the registry to refresh
+        run: sleep 10
 
       - name: Deploy to EC2 instance
         uses: appleboy/ssh-action@master
