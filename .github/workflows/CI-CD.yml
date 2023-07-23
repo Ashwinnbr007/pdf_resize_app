@@ -3,7 +3,9 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main
+      - master
+    paths-ignore:
+      - '**.yml'
 
 jobs:
   build-and-deploy:
