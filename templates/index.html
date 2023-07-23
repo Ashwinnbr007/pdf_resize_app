@@ -12,17 +12,15 @@
     <h1 id="index-title">Upload a PDF</h1>
     <form action="/process_pdf/" method="post" enctype="multipart/form-data">
       <div class="btn-container">
-        <label for="pdfFile" class="btn-1" id="uploadButton"
-          >Upload PDF
-          <input
-            class="btn-1"
-            type="file"
-            id="pdfFile"
-            name="pdf"
-            accept=".pdf"
-            onchange="enableDownloadButton()"
-          />
-        </label>
+        <label for="pdfFile" class="btn-1" id="uploadButton">Upload PDF</label>
+        <input
+          class="btn-1"
+          type="file"
+          id="pdfFile"
+          name="pdf"
+          accept=".pdf"
+          onchange="enableDownloadButton()"
+        />
         <input
           class="btn-2-greyed"
           type="submit"
@@ -41,7 +39,6 @@
         if (fileInput.files.length > 0) {
           uploadButton.textContent = "PDF Uploaded";
           uploadButton.classList.add("uploaded");
-
           downloadButton.disabled = false;
           downloadButton.classList.remove("btn-2-greyed");
           downloadButton.classList.add("btn-2");
