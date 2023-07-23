@@ -46,6 +46,10 @@ jobs:
           script: |
             docker stop /pdf_resize_app
             docker rm /pdf_resize_app
-            sleep 10
             docker pull ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/pdf_resize_app:latest
+            port=8000
+            while nc -z localhost $port; do
+              echo "Port $port is still in use. Waiting..."
+              sleep 1
+            done
             docker run -d -p 8000:8000 ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/pdf_resize_app:latest
