@@ -2,11 +2,71 @@
 <html>
   <head>
     <title>Upload PDF</title>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{{ url_for('static', path='/css/style.css', _schema='https') }}"
-    />
+    <style>
+      body {
+        background-color: rgb(39, 39, 58);
+        color: antiquewhite;
+      }
+
+      #index-title {
+        margin-top: 15%;
+        text-align: center;
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+
+      .btn-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .btn-1,
+      .btn-2 {
+        margin: 10px;
+        border-radius: 5px;
+        background-color: transparent;
+        border: 1px solid #1ea64e;
+        cursor: pointer;
+        color: #efefef;
+        text-align: center;
+        padding: 10px 20px;
+
+        width: 250px;
+        height: 50px;
+        box-sizing: border-box;
+      }
+
+      .btn-1:hover,
+      .btn-2:hover {
+        background-color: #1ea64e;
+        color: white;
+        border: 2px solid #1ea64e;
+      }
+
+      .btn-1.uploaded {
+        background-color: #1ea64e;
+        color: white;
+        border: 2px solid #1ea64e;
+      }
+
+      .btn-2-greyed {
+        margin: 10px;
+        border-radius: 5px;
+        background-color: transparent;
+        border: 1px solid grey;
+        color: #efefef;
+        text-align: center;
+        padding: 10px 20px;
+
+        width: 250px;
+        height: 50px;
+        box-sizing: border-box;
+      }
+    </style>
   </head>
   <body>
     <h1 id="index-title">Upload a PDF</h1>
