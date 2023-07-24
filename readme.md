@@ -11,7 +11,7 @@ To make the app more user-friendly, the nginx server takes care of reverse proxy
 
 ## Setup
 
-To run the app, you can visit https://radixploreassignment.online or run locally using a docker container. ( SSL secured )
+To run the app, you can visit https://radixploreassignment.online ( SSL secured ) or run locally using a docker container.
 
 ### To run locally using docker container
 
